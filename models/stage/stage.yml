@@ -1,0 +1,31 @@
+models:
+  - name: stg_regions
+    description: Table with all region information
+    columns:
+      - name: region_id
+        description: '{{ doc("Primary_Key") }}'
+        tests:
+          - unique
+          - not_null
+      - name: name
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['ASIA','AFRICA','AMERICA']
+                config:
+                  store_failures: true
+                  schema: error
+  - name: stg_nations
+    columns:
+      - name: nation_id
+        description: '{{ doc("Primary_Key") }}'
+        tests:
+          - unique
+          - not_null
+      - name: region_id
+        description: '{{ doc("Foreign_Key")}}'
+  - name: stg_line_items
+    description: All items for each orders
+    columns:
+      - name: order_item_id
+        description: '{{ doc("Primary_Key") }} Surrogate Key Column for Order items'
