@@ -1,3 +1,5 @@
+{# { config(pre_hook="select * from sourcedb.mk_mall.regions", post_hook="select * from analytics.dbt_mkannan_new.stg_regions")} #}
+
 with
     customer as (
         select
