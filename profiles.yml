@@ -1,0 +1,13 @@
+mkmall:
+  outputs:
+    dev:
+      account: IPB82815
+      database: Analytics
+      password: Sachin$123
+      role: AnalyticsEngineer
+      schema: dbt_Murali
+      threads: 3
+      type: snowflake
+      user: Sachin
+      warehouse: transform_wh
+  target: dev
