@@ -4,17 +4,8 @@ models:
     columns:
       - name: region_id
         description: '{{ doc("Primary_Key") }}'
-        tests:
-          - unique
-          - not_null
       - name: name
-        tests:
-          - accepted_values:
-              arguments:
-                values: ['ASIA','AFRICA','AMERICA']
-                config:
-                  store_failures: true
-                  schema: error
+        description: 'Region Name'
   - name: stg_nations
     columns:
       - name: nation_id

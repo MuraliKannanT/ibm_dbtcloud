@@ -5,6 +5,7 @@ select
         n_name as name,
         n_comment as comment,
        {{ jodo('n_name', 'n_comment') }} as jodo_col,
+       "Testing for State" as State_col,
        current_timestamp() as updated_at 
 from {{ source('src', 'nations') }}
 )
