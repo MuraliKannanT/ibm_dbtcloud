@@ -6,6 +6,7 @@ region_id,
 name,
 comment,
 jodo_col,
+{{ dbt_meta() }}
 from {{ ref('stg_nations') }}
 )
 select * from nation
