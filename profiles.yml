@@ -9,8 +9,9 @@ ibm_DataCloud:
       role: AnalyticsEngineer
       database: ANALYTICS
       warehouse: TRANSFORM_WH
-      schema: PROD
+      schema: PRODUCTION
       threads: 4
+
 
 
 
