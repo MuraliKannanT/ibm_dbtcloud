@@ -1,4 +1,4 @@
-prod:
+ibm_DataCloud:
   target: prod
   outputs:
     prod:
@@ -11,3 +11,4 @@ prod:
       warehouse: TRANSFORM_WH
       schema: PROD
       threads: 4
+
