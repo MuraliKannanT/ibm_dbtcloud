@@ -3,9 +3,9 @@ mkmall:
     dev:
       account: IPB82815
       database: Analytics
-      password: Sachin$123
+      password: Sachin@10
       role: AnalyticsEngineer
-      schema: dbt_Murali
+      schema: dbt_sachin
       threads: 3
       type: snowflake
       user: Sachin
