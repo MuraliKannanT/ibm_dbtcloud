@@ -1,0 +1,48 @@
+name: dbt Production Deployment
+
+on:
+  push:
+    branches:
+      - release/prod
+
+jobs:
+  dbt-prod:
+    runs-on: ubuntu-latest
+
+    env:
+      SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+      SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dbt
+        run: |
+          pip install dbt-snowflake
+
+      - name: Create dbt profiles directory
+        run: |
+          mkdir -p ~/.dbt
+
+      - name: Copy profiles.yml
+        run: |
+          cp profiles.yml ~/.dbt/profiles.yml
+
+      - name: Install dbt dependencies
+        run: |
+          dbt deps
+
+      - name: Run dbt models
+        run: |
+          dbt run --target prod
+
+      - name: Run dbt tests
+        run: |
+          dbt test --target prod
