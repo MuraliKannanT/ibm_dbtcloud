@@ -1,13 +1,13 @@
-mkmall:
+prod:
+  target: prod
   outputs:
-    dev:
-      account: IPB82815
-      database: Analytics
-      password: Sachin@10
-      role: AnalyticsEngineer
-      schema: dbt_sachin
-      threads: 3
+    prod:
       type: snowflake
-      user: Sachin
-      warehouse: transform_wh
-  target: dev
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: AnalyticsEngineer
+      database: ANALYTICS
+      warehouse: TRANSFORM_WH
+      schema: PROD
+      threads: 4
