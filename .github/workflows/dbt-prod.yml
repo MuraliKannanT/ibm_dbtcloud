@@ -1,12 +1,12 @@
 name: dbt Production Deployment
 
 on:
-  push:
-    branches:
-      - main
-  schedule:
-    # Run every day exactly at 5 AM UTC 
-    - cron: '0 5 * * *'
+  # push:
+  #   branches:
+  #     - main
+  # schedule:
+  #   # Run every day exactly at 5 AM UTC 
+  #   - cron: '0 5 * * *'
   workflow_dispatch: # Allows manual triggering from the GitHub UI
 
 jobs:
@@ -48,6 +48,6 @@ jobs:
         run: |
           dbt build --target prod
 
-      - name: Run dbt tests
-        run: |
-          dbt test --target prod
+      # - name: Run dbt tests
+      #   run: |
+      #     dbt test --target prod
