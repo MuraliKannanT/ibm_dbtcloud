@@ -3,7 +3,11 @@ name: dbt Production Deployment
 on:
   push:
     branches:
-      - release/prod
+      - main
+  schedule:
+    # Run every day at 5 AM UTC
+    - cron: '0 5 * * *'
+  workflow_dispatch: # Allows manual triggering from the GitHub UI
 
 jobs:
   dbt-prod:
