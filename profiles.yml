@@ -5,12 +5,13 @@ ibm_DataCloud:
       type: snowflake
       account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
       user: "{{ env_var('SNOWFLAKE_USER') }}
-      password: "{{ env_var'(SNOWFLAKE_PASSWORD') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
       role: AnalyticsEngineer
       database: ANALYTICS
       warehouse: TRANSFORM_WH
       schema: PROD
       threads: 4
+
 
 
 
