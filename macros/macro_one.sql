@@ -4,8 +4,13 @@
 
 {% endmacro %}
 
-{% macro getemps() %}
-{% do run_query("select name from analytics.dbt_murali.stg_regions") %}
+{% macro appendnations() %}
+{% set newnat %}
+insert into {{ref('int_nations')}} (nation_id,name)
+select nation_id,name from {{ ref('stg_nations') }}
+{% endset %}
+
+{% do run_query(newnat) %}
 {% endmacro %}
 
 {% macro unload() %}

@@ -10,7 +10,7 @@ ibm_DataCloud:
       database: ANALYTICS
       warehouse: TRANSFORM_WH
       schema: PRODUCTION
-      threads: 4
+      threads: 3
 
 
 

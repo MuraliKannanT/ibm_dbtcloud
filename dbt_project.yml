@@ -38,4 +38,4 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   ibm_DataCloud:
    stage:
-     materialized: table
+     +materialized: table
